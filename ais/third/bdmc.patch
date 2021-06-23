@@ -1,0 +1,87 @@
+diff --git a/hmc.py b/hmc.py
+index 67fbe0a..71caa12 100644
+--- a/hmc.py
++++ b/hmc.py
+@@ -32,7 +32,7 @@ def accept_reject(current_z, current_v,
+                   z, v,
+                   epsilon,
+                   accept_hist, hist_len,
+-                  U, K=lambda v: torch.sum(v * v, 1)):
++                  U, K=lambda v: torch.sum(v * v, 1), use_cuda=False):
+   """Accept/reject based on Hamiltonians for current and propose.
+ 
+   Args:
+@@ -50,12 +50,18 @@ def accept_reject(current_z, current_v,
+   prob = torch.clamp_max(torch.exp(current_Hamil - propose_Hamil), 1.)
+ 
+   with torch.no_grad():
+-    uniform_sample = torch.rand(prob.size()).cuda()
+-    accept = (prob > uniform_sample).float().cuda()
++    uniform_sample = torch.rand(prob.size())
++    if use_cuda:
++      uniform_sample = uniform_sample.cuda()
++    accept = (prob > uniform_sample).float()
++    if use_cuda:
++      accept = accept.cuda()
+     z = z.mul(accept.view(-1, 1)) + current_z.mul(1. - accept.view(-1, 1))
+ 
+     accept_hist = accept_hist.add(accept)
+-    criteria = (accept_hist / hist_len > 0.65).float().cuda()
++    criteria = (accept_hist / hist_len > 0.65).float()
++    if use_cuda:
++      criteria = criteria.cuda()
+     adapt = 1.02 * criteria + 0.98 * (1. - criteria)
+     epsilon = epsilon.mul(adapt).clamp(1e-4, .5)
+ 
+diff --git a/utils.py b/utils.py
+index 691f70a..01dc568 100644
+--- a/utils.py
++++ b/utils.py
+@@ -19,7 +19,8 @@ def log_normal(x, mean, logvar):
+   """
+ 
+   return -0.5 * (
+-      logvar.sum(1) + ((x - mean).pow(2) / torch.exp(logvar)).sum(1))
++      x.shape[1] * np.log(2*np.pi) + logvar.sum(1) +
++      ((x - mean).pow(2) / torch.exp(logvar)).sum(1))
+ 
+ 
+ def log_normal_full_cov(x, mean, L):
+@@ -28,20 +29,20 @@ def log_normal_full_cov(x, mean, L):
+   quantity cancels out in p(z) and q(z|x)."""
+ 
+   def batch_diag(M):
+-    diag = [t.diag() for t in torch.functional.unbind(M)]
+-    diag = torch.functional.stack(diag)
++    diag = [t.diag() for t in torch.unbind(M)]
++    diag = torch.stack(diag)
+     return diag
+ 
+   def batch_inverse(M, damp=False, eps=1e-6):
+     damp_matrix = Variable(
+         torch.eye(M[0].size(0)).type(M.data.type())).mul_(eps)
+     inverse = []
+-    for t in torch.functional.unbind(M):
++    for t in torch.unbind(M):
+       # damping to ensure invertible due to float inaccuracy
+       # this problem is very UNLIKELY when using double
+       m = t if not damp else t + damp_matrix
+       inverse.append(m.inverse())
+-    inverse = torch.functional.stack(inverse)
++    inverse = torch.stack(inverse)
+     return inverse
+ 
+   L_diag = batch_diag(L)
+diff --git a/vae.py b/vae.py
+index be55d7f..36ec84f 100644
+--- a/vae.py
++++ b/vae.py
+@@ -4,7 +4,7 @@ import torch
+ import torch.nn as nn
+ import torch.nn.functional as F
+ 
+-import utils
++from . import utils
+ 
+ 
+ class VAE(nn.Module):
