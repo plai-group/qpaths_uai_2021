@@ -57,4 +57,4 @@ average lower bound -126.694, average upper bound -101.315, average bdmc gap: 25
 ```
 
 The BDMC gaps here are fairly big, but expected given the small number of intermediate densities (100).
-In practice, as well as in the paper, we reported results for `K=500, 1000, 5000` and for a much larger `no-samples`.
+In practice, as well as in the paper, we reported results for `chain-length = 500, 1000, 5000` and for a much larger `no-samples`.
