@@ -206,6 +206,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-
-# python run_bdmc_dgm.py --batch-size=$batchsize --no-batches=$nobatches --chain-length=${chainlength[$index]} --no-samples=${nosamples[$index]} --geometric --seed $seed --model-path model_files/tvo_model_h_200_z_50_T_100_scdhl_log_lbmin_-1.5_bs_100.pt
