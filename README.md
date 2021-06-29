@@ -12,4 +12,4 @@ placeholder
 
 ### Acknowledgements
 
-We thank Xuechen Li for his [BDMC package](https://github.com/lxuechen/BDMC) we use in `qpaths_uai_2021/ais/` and Nicolas Chopin for his [particles](https://github.com/nchopin/particles) package we use in `qpaths_uai_2021/smc/`.
+We thank Xuechen Li for his [BDMC package](https://github.com/lxuechen/BDMC) used in `qpaths_uai_2021/ais/` and Nicolas Chopin for the [particles](https://github.com/nchopin/particles) package used in `qpaths_uai_2021/smc/`.
