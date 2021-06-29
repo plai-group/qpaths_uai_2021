@@ -1,0 +1,1 @@
+Available at: https://github.com/vmasrani/q_paths/blob/main/make_ridge.ipynb

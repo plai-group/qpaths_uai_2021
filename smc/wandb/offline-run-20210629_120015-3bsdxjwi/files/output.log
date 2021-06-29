@@ -1,0 +1,235 @@
+{'ESSrmin': 0.5,
+ 'K': 10,
+ 'Ms': [1, 3, 5],
+ 'N': 10000,
+ 'adaptive': 'q_init_fixed_beta',
+ 'alg_type': 'qpath',
+ 'artifact_dir': './artifacts/',
+ 'dataset_name': 'sonar',
+ 'deltas': [20],
+ 'home_dir': '/home/vadmas/dev/projects/active/qstuff/qpaths_uai_2021/smc',
+ 'n_jobs': 1,
+ 'nruns': 10,
+ 'q_init_restarts': 500,
+ 'q_init_samples': 10000,
+ 'seed': 1,
+ 'subsample': 0,
+ 'typM': 5}
+Dataset: sonar
+  0%|          | 0/30 [00:00<?, ?it/s]qpath, M=1, run 0
+*********New best**********
+value:  0.0016499088900422197
+{'beta': 0.0029594761519834535, 'delta': 3.6919088189221414}
+***************************
+*********New best**********
+value:  0.00034184279679605825
+{'beta': 0.006883456286177855, 'delta': 3.653870961176992}
+***************************
+*********New best**********
+value:  0.00015362451415815132
+{'beta': 0.009877908448736305, 'delta': 4.2290950530887015}
+***************************
+*********New best**********
+value:  0.00013196288376023002
+{'beta': 0.024105335279196703, 'delta': 4.16684888507134}
+***************************
+*********New best**********
+value:  6.439929835200472e-06
+{'beta': 0.028643634287219624, 'delta': 4.125410483158751}
+***************************
+*********New best**********
+value:  2.2436268927688453e-13
+{'beta': 0.9718658165422384, 'delta': 4.246255116887934}
+***************************
+*********New best**********
+value:  8.094099936685305e-17
+{'beta': 0.987474259391428, 'delta': 3.957459648193727}
+***************************
+new_delta: 3.957459648193727
+t=0, ESS=3.07, tempering exponent=0.111
+Warning: could not compute Cholesky decomposition, using diag matrix instead
+t=1, Metropolis acc. rate (over 1 steps): 0.227, ESS=4.42, tempering exponent=0.222
+t=2, Metropolis acc. rate (over 1 steps): 0.506, ESS=34.23, tempering exponent=0.333
+t=3, Metropolis acc. rate (over 1 steps): 0.592, ESS=4142.85, tempering exponent=0.444
+t=4, Metropolis acc. rate (over 1 steps): 0.598, ESS=6098.94, tempering exponent=0.556
+t=5, Metropolis acc. rate (over 1 steps): 0.622, ESS=7044.51, tempering exponent=0.667
+t=6, Metropolis acc. rate (over 1 steps): 0.643, ESS=7920.31, tempering exponent=0.778
+t=7, Metropolis acc. rate (over 1 steps): 0.674, ESS=8481.98, tempering exponent=0.889
+t=8, Metropolis acc. rate (over 1 steps): 0.692, ESS=8800.92, tempering exponent=1
+CPU time (min): 0.16
+loglik: -288.457105
+  3%|▎         | 1/30 [00:09<04:40,  9.67s/it]qpath, M=1, run 1
+*********New best**********
+value:  0.000636395559586299
+{'beta': 0.0031056200151387556, 'delta': 3.635584735654383}
+***************************
+*********New best**********
+value:  5.399569857275985e-08
+{'beta': 0.018034308420416374, 'delta': 3.7295329327501525}
+***************************
+*********New best**********
+value:  1.9137733370088104e-19
+{'beta': 0.9982323996969702, 'delta': 3.6872708788123134}
+***************************
+new_delta: 3.6872708788123134
+t=0, ESS=1.01, tempering exponent=0.111
+Warning: could not compute Cholesky decomposition, using diag matrix instead
+t=1, Metropolis acc. rate (over 1 steps): 0.998, ESS=8136.20, tempering exponent=0.222
+t=2, Metropolis acc. rate (over 1 steps): 0.824, ESS=8005.58, tempering exponent=0.333
+t=3, Metropolis acc. rate (over 1 steps): 0.833, ESS=7969.50, tempering exponent=0.444
+t=4, Metropolis acc. rate (over 1 steps): 0.810, ESS=7971.63, tempering exponent=0.556
+t=5, Metropolis acc. rate (over 1 steps): 0.775, ESS=8049.40, tempering exponent=0.667
+t=6, Metropolis acc. rate (over 1 steps): 0.748, ESS=8175.69, tempering exponent=0.778
+t=7, Metropolis acc. rate (over 1 steps): 0.737, ESS=8330.67, tempering exponent=0.889
+t=8, Metropolis acc. rate (over 1 steps): 0.732, ESS=8467.57, tempering exponent=1
+CPU time (min): 0.12
+loglik: -431.614617
+  7%|▋         | 2/30 [00:17<03:54,  8.37s/it]qpath, M=1, run 2
+*********New best**********
+value:  0.0004947176748305366
+{'beta': 0.0028788345958327627, 'delta': 3.7214924631433224}
+***************************
+*********New best**********
+value:  4.6774733762182826e-05
+{'beta': 0.01880326310343086, 'delta': 4.0588490349094775}
+***************************
+*********New best**********
+value:  9.61721108313168e-06
+{'beta': 0.021097343291465478, 'delta': 6.7754955907229775}
+***************************
+*********New best**********
+value:  2.429958854660276e-19
+{'beta': 0.9861575627338677, 'delta': 4.014046202738765}
+***************************
+new_delta: 4.014046202738765
+t=0, ESS=1.16, tempering exponent=0.111
+Warning: could not compute Cholesky decomposition, using diag matrix instead
+t=1, Metropolis acc. rate (over 1 steps): 0.656, ESS=122.08, tempering exponent=0.222
+t=2, Metropolis acc. rate (over 1 steps): 0.521, ESS=23.74, tempering exponent=0.333
+t=3, Metropolis acc. rate (over 1 steps): 0.529, ESS=1014.00, tempering exponent=0.444
+t=4, Metropolis acc. rate (over 1 steps): 0.573, ESS=4709.60, tempering exponent=0.556
+t=5, Metropolis acc. rate (over 1 steps): 0.620, ESS=7071.75, tempering exponent=0.667
+t=6, Metropolis acc. rate (over 1 steps): 0.653, ESS=7890.24, tempering exponent=0.778
+t=7, Metropolis acc. rate (over 1 steps): 0.659, ESS=8213.45, tempering exponent=0.889
+t=8, Metropolis acc. rate (over 1 steps): 0.660, ESS=8394.55, tempering exponent=1
+CPU time (min): 0.12
+loglik: -349.292316
+ 10%|█         | 3/30 [00:24<03:32,  7.87s/it]qpath, M=1, run 3
+*********New best**********
+value:  0.0005967648193868946
+{'beta': 0.003019258803563497, 'delta': 3.631729505322037}
+***************************
+*********New best**********
+value:  1.9613988114292957e-08
+{'beta': 0.016103530046252087, 'delta': 3.677517556163197}
+***************************
+*********New best**********
+value:  8.608531500565913e-18
+{'beta': 0.026527996263018095, 'delta': 3.9931230841377983}
+***************************
+*********New best**********
+value:  1.7632181937180338e-20
+{'beta': 0.040086629259550394, 'delta': 4.195297610216992}
+***************************
+new_delta: 4.195297610216992
+t=0, ESS=1.56, tempering exponent=0.111
+Warning: could not compute Cholesky decomposition, using diag matrix instead
+t=1, Metropolis acc. rate (over 1 steps): 0.441, ESS=7.93, tempering exponent=0.222
+t=2, Metropolis acc. rate (over 1 steps): 0.535, ESS=48.66, tempering exponent=0.333
+t=3, Metropolis acc. rate (over 1 steps): 0.634, ESS=2742.85, tempering exponent=0.444
+t=4, Metropolis acc. rate (over 1 steps): 0.712, ESS=6429.03, tempering exponent=0.556
+t=5, Metropolis acc. rate (over 1 steps): 0.748, ESS=7387.96, tempering exponent=0.667
+t=6, Metropolis acc. rate (over 1 steps): 0.737, ESS=7676.05, tempering exponent=0.778
+t=7, Metropolis acc. rate (over 1 steps): 0.717, ESS=7941.41, tempering exponent=0.889
+t=8, Metropolis acc. rate (over 1 steps): 0.721, ESS=8205.59, tempering exponent=1
+CPU time (min): 0.13
+loglik: -304.425499
+ 13%|█▎        | 4/30 [00:32<03:25,  7.89s/it]qpath, M=1, run 4
+*********New best**********
+value:  0.0019952372744881717
+{'beta': 0.003067188897100953, 'delta': 3.640759488871204}
+***************************
+*********New best**********
+value:  6.001117407161086e-08
+{'beta': 0.017725791683105934, 'delta': 3.7730963919774436}
+***************************
+*********New best**********
+value:  1.1511416828235304e-14
+{'beta': 0.023015288177758896, 'delta': 3.9220945671856824}
+***************************
+*********New best**********
+value:  6.780208402375668e-18
+{'beta': 0.028199744749443742, 'delta': 4.034068763460518}
+***************************
+ 13%|█▎        | 4/30 [00:37<04:01,  9.27s/it]
+WARNING - q_heuristic - Aborted after 0:00:38!
+Traceback (most recent call last):
+  File "main.py", line 111, in <module>
+    @ex.automain
+  File "/home/vadmas/miniconda/envs/ml3_lite/lib/python3.6/site-packages/sacred/experiment.py", line 190, in automain
+    self.run_commandline()
+  File "/home/vadmas/miniconda/envs/ml3_lite/lib/python3.6/site-packages/sacred/experiment.py", line 318, in run_commandline
+    options=args,
+  File "/home/vadmas/miniconda/envs/ml3_lite/lib/python3.6/site-packages/sacred/experiment.py", line 276, in run
+    run()
+  File "/home/vadmas/miniconda/envs/ml3_lite/lib/python3.6/site-packages/sacred/run.py", line 238, in __call__
+    self.result = self.main_function(*args)
+  File "/home/vadmas/miniconda/envs/ml3_lite/lib/python3.6/site-packages/sacred/config/captured_function.py", line 42, in captured_function
+    result = wrapped(*args, **kwargs)
+  File "main.py", line 117, in command_line_entry
+    train(args)
+  File "main.py", line 106, in train
+    res = ssm_sampler_experiments.run(args)
+  File "/home/vadmas/dev/projects/active/qstuff/qpaths_uai_2021/smc/src/ssm_sampler_experiments.py", line 112, in run
+    n_jobs=args.n_jobs
+  File "/home/vadmas/.python/parallel.py", line 34, in pmap
+    return Parallel(n_jobs=n_jobs, **kwargs)(delayed(f)(i) for i in arr)
+  File "/home/vadmas/miniconda/envs/ml3_lite/lib/python3.6/site-packages/joblib/parallel.py", line 1044, in __call__
+    while self.dispatch_one_batch(iterator):
+  File "/home/vadmas/miniconda/envs/ml3_lite/lib/python3.6/site-packages/joblib/parallel.py", line 859, in dispatch_one_batch
+    self._dispatch(tasks)
+  File "/home/vadmas/miniconda/envs/ml3_lite/lib/python3.6/site-packages/joblib/parallel.py", line 777, in _dispatch
+    job = self._backend.apply_async(batch, callback=cb)
+  File "/home/vadmas/miniconda/envs/ml3_lite/lib/python3.6/site-packages/joblib/_parallel_backends.py", line 208, in apply_async
+    result = ImmediateResult(func)
+  File "/home/vadmas/miniconda/envs/ml3_lite/lib/python3.6/site-packages/joblib/_parallel_backends.py", line 572, in __init__
+    self.results = batch()
+  File "/home/vadmas/miniconda/envs/ml3_lite/lib/python3.6/site-packages/joblib/parallel.py", line 263, in __call__
+    for func, args, kwargs in self.items]
+  File "/home/vadmas/miniconda/envs/ml3_lite/lib/python3.6/site-packages/joblib/parallel.py", line 263, in <listcomp>
+    for func, args, kwargs in self.items]
+  File "/home/vadmas/dev/projects/active/qstuff/qpaths_uai_2021/smc/src/ssm_sampler_experiments.py", line 111, in <lambda>
+    lambda M_i_alg: _inner(*M_i_alg), product(Ms, range(nruns), args.deltas),
+  File "/home/vadmas/dev/projects/active/qstuff/qpaths_uai_2021/smc/src/ssm_sampler_experiments.py", line 92, in _inner
+    pf.run()
+  File "/home/vadmas/dev/projects/active/qstuff/qpaths_uai_2021/smc/src/particles/utils.py", line 88, in timed_method
+    out = method(self, **kwargs)
+  File "/home/vadmas/dev/projects/active/qstuff/qpaths_uai_2021/smc/src/particles/core.py", line 424, in run
+    for _ in self:
+  File "/home/vadmas/dev/projects/active/qstuff/qpaths_uai_2021/smc/src/particles/core.py", line 397, in __next__
+    self.reweight_particles()
+  File "/home/vadmas/dev/projects/active/qstuff/qpaths_uai_2021/smc/src/particles/core.py", line 340, in reweight_particles
+    self.wgts = self.wgts.add(self.fk.logG(self.t, self.Xp, self.X))
+  File "/home/vadmas/dev/projects/active/qstuff/qpaths_uai_2021/smc/src/particles/smc_samplers.py", line 709, in logG
+    _, new_delta = learn_delta(x.llik, beta, ESSmin, self.fudge, restarts=self.args.q_init_restarts)
+  File "/home/vadmas/dev/projects/active/qstuff/qpaths_uai_2021/smc/src/utils.py", line 92, in learn_delta
+    fun, beta, delta = _helper(adaptive_q)
+  File "/home/vadmas/dev/projects/active/qstuff/qpaths_uai_2021/smc/src/utils.py", line 79, in _helper
+    (0, 18)])
+  File "/home/vadmas/miniconda/envs/ml3_lite/lib/python3.6/site-packages/scipy/optimize/_minimize.py", line 608, in minimize
+    return _minimize_powell(fun, x0, args, callback, bounds, **options)
+  File "/home/vadmas/miniconda/envs/ml3_lite/lib/python3.6/site-packages/scipy/optimize/optimize.py", line 2936, in _minimize_powell
+    fval=fval)
+  File "/home/vadmas/miniconda/envs/ml3_lite/lib/python3.6/site-packages/scipy/optimize/optimize.py", line 2673, in _linesearch_powell
+    res = _minimize_scalar_bounded(myfunc, bound, xatol=tol / 100)
+  File "/home/vadmas/miniconda/envs/ml3_lite/lib/python3.6/site-packages/scipy/optimize/optimize.py", line 1978, in _minimize_scalar_bounded
+    fu = func(x, *args)
+  File "/home/vadmas/miniconda/envs/ml3_lite/lib/python3.6/site-packages/scipy/optimize/optimize.py", line 2656, in myfunc
+    return func(p + alpha*xi)
+  File "/home/vadmas/miniconda/envs/ml3_lite/lib/python3.6/site-packages/scipy/optimize/optimize.py", line 427, in function_wrapper
+    return function(*(wrapper_args + args))
+  File "/home/vadmas/dev/projects/active/qstuff/qpaths_uai_2021/smc/src/utils.py", line 73, in <lambda>
+    f = lambda e: (essl(qdiff(log_b_over_a, e[0], beta, delta_to_q(e[1]), 1)) - ESSmin)**2
+  File "/home/vadmas/dev/projects/active/qstuff/qpaths_uai_2021/smc/src/utils.py", line 49, in qdiff
+    qpath1 = (1/(1 - q1)) * np.log(1 + beta1*(np.exp((1-q1)*log_b_over_a) - 1))
+KeyboardInterrupt
