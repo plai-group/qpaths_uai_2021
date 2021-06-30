@@ -6,7 +6,12 @@ Qpath helper functions to be used across projects are available [here](https://g
 
 
 ```
-placeholder
+@inproceedings{masrani2021qpaths,
+  title={q-Paths: Generalizing the Geometric Annealing Path using Power Means},
+  author={Masrani, Vaden and Brekelmans, Rob and Bui, Thang and Nielsen, Frank  and Galstyan, Aram and Steeg, Greg Ver and Wood, Frank},
+  booktitle={Proceedings of the 37th Conference on Uncertainty in Artificial Intelligence},
+  year={2021}
+}
 ```
 
 
