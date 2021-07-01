@@ -2,7 +2,7 @@ This folder contains code for the toy experiments shown in Figure 2, 3, 5, 6.
 
 ### Set up
 
-Follow the instructions in `qpaths_uai_2021/src/readme.md`.
+Follow the instructions in `qpaths_uai_2021/smc/readme.md`.
 
 ### Example
 

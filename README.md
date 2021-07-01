@@ -1,6 +1,6 @@
 ## q-Paths: Generalizing the Geometric Annealing Path using Power Means
 
-This is the code accompanying ```q-Paths: Generalizing the Geometric Annealing Path using Power Means```. Code for the ais experiments is available in `qpaths_uai_2021/ais/`, and code for smc experiments in `qpaths_uai_2021/smc/`, with run instructions contained within each folder. Code for all visualizations is available in `qpaths_uai_2021/ais/`.
+This is the code accompanying ```q-Paths: Generalizing the Geometric Annealing Path using Power Means```. Code for the ais experiments is available in `qpaths_uai_2021/ais/`, and code for smc experiments in `qpaths_uai_2021/smc/`, with run instructions contained within each folder. Code for all visualizations is available in `qpaths_uai_2021/visualizations/`.
 
 Qpath helper functions to be used across projects are available [here](https://github.com/vmasrani/qpaths_uai_2021/blob/main/smc/src/utils.py).
 
