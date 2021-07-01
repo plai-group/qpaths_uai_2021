@@ -6,7 +6,24 @@ We use the [particles](https://github.com/nchopin/particles) package developed t
 
 ### Set up
 
-Install the requirements using `pip install -r requirements.txt` and follow [the instructions](https://github.com/vmasrani/machine_learning_helpers) to enable `import ml_helpers as mlh` , `import flavor`, and `import parallel`. The structure of `main.py` is described in the comments [here](https://github.com/vmasrani/ml_project_skeleton/blob/master/main.py) and the command line interface is described [here](https://github.com/vmasrani/ml_project_skeleton/blob/master/README.md).
+We use the following python packages:
+
+`pip install pandas joblib pyjanitor tqdm torch matplotlib seaborn numba sacred wandb`
+
+As well as the machine learning helper functions available at `https://github.com/vmasrani/machine_learning_helpers`.
+
+```bash
+python -m venv env
+source env/bin/activate
+git clone git@github.com:vmasrani/machine_learning_helpers.git
+cd machine_learning_helpers/
+export PYTHONPATH="$(pwd):${PYTHONPATH}"
+cd ..
+pip install pandas joblib pyjanitor tqdm torch matplotlib seaborn numba sacred wandb
+python main.py with n_jobs=-1 adaptive=fixed_beta dataset_name=sonar K=20 --name 'q_heuristic' --unobserved
+```
+
+The structure of `main.py` is described in the comments [here](https://github.com/vmasrani/ml_project_skeleton/blob/master/main.py) and the command line interface is described [here](https://github.com/vmasrani/ml_project_skeleton/blob/master/README.md).
 
 ### Example
 
