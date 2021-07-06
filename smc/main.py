@@ -14,7 +14,7 @@ import wandb
 # Use wandb for experiment tracking
 
 ex = Experiment()
-WANDB_PROJECT_NAME = 'qpath_camera_ready'
+WANDB_PROJECT_NAME = 'my_project_name'
 if '--unobserved' in sys.argv:
     os.environ['WANDB_MODE'] = 'dryrun'
 
@@ -29,7 +29,6 @@ def my_config():
     home_dir = '.' # required by job submitter, don't modify
     artifact_dir = './artifacts/' # required by job submitter, don't modify
     dataset_name = 'pima' # 'eeg', 'sonar'
-
 
     adaptive = 'beta' # ['fixed', 'beta', 'q_init', 'q_init_fixed_beta']
     alg_type = 'qpath' # 'ground_truth'
@@ -49,6 +48,7 @@ def my_config():
     Ms = [1, 3, 5]
     typM = 5
 
+    # q = 1 - 10**(-delta)
     deltas = [20]
 
     subsample = 0

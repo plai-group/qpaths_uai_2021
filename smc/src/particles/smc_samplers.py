@@ -28,7 +28,7 @@ from __future__ import absolute_import, division, print_function
 
 
 import copy as cp
-from src.utils import delta_to_q, learn_delta, qdiff
+from src.qhelpers import delta_to_q, learn_delta, qdiff, qpath
 import numpy as np
 from scipy import optimize, stats
 from scipy.linalg import cholesky, LinAlgError, solve_triangular
@@ -579,82 +579,22 @@ class Tempering(FKSMCsampler):
     def __init__(self, model, mh_options=None, exponents=None):
         FKSMCsampler.__init__(self, model, mh_options=mh_options)
         self.exponents = exponents
-        self.deltas = np.diff(exponents)
-        self.q = 1
+        self.beta_diff = np.diff(exponents)
+        self.q = None # set by subclass
 
     @property
     def T(self):
-        return self.deltas.shape[0]
-
-    # def logG(self, t, xp, x):
-    #     delta = self.deltas[t]
-    #     return self.logG_tempering(x, delta)
+        return self.beta_diff.shape[0]
 
     def logG_tempering(self, x, new_beta, beta, new_q, q):
         dl = qdiff(x.llik, new_beta, beta, new_q, q)
         x.lpost += dl
-        # self.update_path_sampling_est(x, new_beta, beta)
         return dl
-
-    # def update_path_sampling_est(self, x, new_epn, epn):
-    #     delta = new_epn - epn
-    #     grid_size = 11
-    #     binwidth = delta / (grid_size - 1)
-    #     new_ps_est = x.path_sampling[-1]
-    #     grid = np.linspace(0., delta, grid_size)
-
-    #     if self.q == 1:
-    #         for i, e in enumerate(np.linspace(0., delta, grid_size)):
-    #             mult = 0.5 if i==0 or i==grid_size-1 else 1.
-    #             geo_est = (mult * binwidth *np.average(x.llik, weights=rs.exp_and_normalise(e * x.llik)))
-    #             new_ps_est += geo_est
-    #         x.path_sampling.append(new_ps_est)
-    #     else:
-    #         prev_epn = 0
-    #         for i, _delta in enumerate(grid):
-    #             new_epn = prev_epn + _delta
-    #             integrand = self.dlogq(x, new_epn)
-    #             weight = self.betadiff(x, new_epn, prev_epn)
-    #             weight = rs.exp_and_normalise(weight)
-    #             prev_epn = new_epn
-
-    #             mult = 0.5 if i==0 or i==grid_size-1 else 1.
-    #             qest = (mult * binwidth * np.average(integrand, weights=weight))
-    #             # print(qest)
-    #             new_ps_est += qest
-    #         x.path_sampling.append(new_ps_est)
-
-
-    def dlogq(self, x, beta):
-        if (beta <= 0.):
-            dlogq = np.exp((1-self.q)*x.llik) - 1
-            return dlogq / (1-self.q)
-        if (self.q == 1):
-            dlogq = 1  - np.exp((self.q - 1)*x.llik)
-            return dlogq / (1-self.q)
-        else:
-            lik_term = np.power(np.exp((1-self.q)*x.llik) - 1, -1)
-            return np.power((1-self.q)*(beta + lik_term), -1)
-
-    def qpath(self, x, beta):
-        if (beta <= 0.):
-            return x.lprior.copy()
-        elif beta == 1.0:
-            return x.lprior + x.llik
-        elif (self.q == 1):
-            return x.lprior + beta * x.llik
-        else:
-            log_a = x.lprior
-            log_b_over_a = x.llik
-            # this is the lse trick except applied assuming log_a > log_b
-            # this form is needed when doing lse1 - lse2 b/c you can cancel log_a's
-            qpath = np.log(1 + beta*(np.exp((1-self.q)*log_b_over_a) - 1))
-            return log_a + qpath/(1 - self.q)
 
     def compute_post(self, x, epn, q=1):
         x.lprior = self.model.prior.logpdf(x.theta)
         x.llik = self.model.loglik(x.theta)
-        x.lpost = self.qpath(x, epn)
+        x.lpost = qpath(x.lprior, x.lprior + x.llik, epn, self.q)
 
     def M0(self, N):
         x0 = TemperingParticles(theta=self.model.prior.rvs(size=N))

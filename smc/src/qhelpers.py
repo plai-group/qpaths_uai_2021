@@ -56,8 +56,17 @@ def qdiff(log_b_over_a, beta1, beta2, q1=1, q2=1):
     return qpath1 - qpath2
 
 
-def lnq_from_ln(lnx, q):
-    return ( 1 / (1-q) ) * ( np.exp((1-q) * lnx) - 1)
+def qpath(log_a, log_b, beta, q):
+    if beta <= 0.0:
+        log_joint = log_a
+    elif beta == 1.0:
+        log_joint = log_b
+    else:
+        log_a = (1 - q) * log_a
+        log_b = (1 - q) * log_b
+        lse = log_sum_weighted_exp(log_a, log_b, 1 - beta, beta)
+        log_joint = lse / (1 - q)
+    return log_joint
 
 
 def delta_to_q(delta):
